@@ -1,0 +1,107 @@
+<head>
+	<meta charset="UTF-8">
+	<style>
+		body {
+			background-color: black;
+			font-family: monospace;
+			color: whitesmoke;
+			text-align: justify;
+			padding-left: 20%;
+			padding-right: 20%;
+		}
+
+		p {
+			font-size: 16px;
+		}
+		
+		.title {
+			text-align: center;
+			font-size: 48px;
+		}
+
+		.sub-title {
+			text-align: center;
+			font-size: 32px;
+		}
+
+		.cat-img {
+			width: 200px;
+			height: 200px;
+			border: 10px;
+			padding: 5px;
+			border-color: whitesmoke;
+			border-style: solid;
+		}
+		.button {
+			transition-duration: 0.2s;
+			padding: 8px 32px;
+			background-color: whitesmoke;
+			color: black;
+			display: inline-block;
+			border: none;
+			font-size: 16px;
+			font-family: monospace;
+			border: 4px;
+			border-color: whitesmoke;
+			border-style: solid;
+		}
+
+		.button:hover {
+			background-color: black;
+			color: whitesmoke;
+		}
+
+		.form {
+			text-align: center;
+		}
+	</style>
+	<title>SamplePage</title>
+</head>
+
+<body>
+	<h1 class="title">Different page</h1>
+	<p>This is a different page created created for the course</p>
+	<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed interdum libero quis hendrerit ullamcorper. Vivamus
+	condimentum, arcu quis ultrices porttitor, neque dolor interdum odio, sit amet pellentesque dui tellus nec ligula.
+	Aliquam imperdiet leo euismod est lacinia dapibus. Cras ultricies nec lectus sit amet mollis. Nam vel fringilla nunc, id
+	faucibus nunc. Aliquam pellentesque et ligula ut imperdiet. Class aptent taciti sociosqu ad litora torquent per conubia
+	nostra, per inceptos himenaeos. Suspendisse bibendum a urna ut sagittis. Sed imperdiet at ligula sed suscipit. Nunc eu
+	neque aliquam, fringilla leo faucibus, tempus est.</p>
+	<p>Nunc ultricies scelerisque nulla, eu aliquam neque interdum at. Maecenas at tincidunt nibh, et volutpat mauris.
+	Suspendisse sit amet diam quis odio hendrerit fringilla vitae et urna. Donec consequat urna quis nisl fermentum pretium.
+	Sed pellentesque iaculis massa. Suspendisse mollis sollicitudin placerat. Phasellus posuere nec magna pellentesque
+	varius. Aliquam cursus magna ut urna lobortis, vestibulum viverra sem semper. Nulla dapibus sapien risus, id ullamcorper
+	nulla rhoncus vitae. Cras eu efficitur purus. Suspendisse velit neque, pretium sed justo in, volutpat scelerisque nisi.</p>
+
+	<h1 class="sub-title">Cat photos</h1>
+
+	<div>
+		<img src="cat1.jpg" class="cat-img" id="cat1-photo">
+		<img src="cat2.jpg" class="cat-img" id="cat2-photo">
+		<img src="cat3.jpg" class="cat-img" id="cat3-photo">
+	</div>
+	<a class="button"
+		href="https://www.google.com/search?q=cat+photos&sxsrf=APq-WBuMgwRrAKOoa51rKLbcRA2i9yySWg:1647271553901&source=lnms&tbm=isch&sa=X&ved=2ahUKEwjHkcbe9MX2AhWJzosKHWceB7kQ_AUoAXoECAEQAw&biw=1536&bih=754&dpr=1.25">More
+		cat photos...</a>
+
+	<h1 class="sub-title">Form</h1>
+	<form class="form">
+		<p>Best photo:</p>
+		<label for="best-cat1">
+			Cat 1
+			<input type="radio" name="best-cat" id="best-cat1" value="cat1" class="sub-title" required>
+		</label>
+		<br>
+		<label for="best-cat2">
+			Cat 2
+			<input type="radio" name="best-cat" id="best-cat2" value="cat2" class="sub-title" required>
+		</label>
+		<br>
+		<label for="best-cat3">
+			Cat 3
+			<input type="radio" name="best-cat" id="best-cat3" value="cat3" class="sub-title" required>
+		</label>
+		<br>
+		<button class="button" type="submit">Submit</button>
+	</form>
+</body>
