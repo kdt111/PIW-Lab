@@ -24,17 +24,17 @@ const CreateTodoEntry = (text) => {
 
 	container.classList.add("todo-entry");
 
-	textElement.innerHTML = text;
+	textElement.textContent = text;
 	textElement.classList.add("todo-text");
+
+	container.appendChild(textElement);
 
 	$("<input/>").attr({
 		type: "button",
 		class: "btn btn-danger",
-		value: "x",
+		value: "Remove",
 		style: "display: table-cell;",
 	}).appendTo(container).click(() => RemoveEntryDialog(container));
-
-	container.appendChild(textElement);
 
 	textElement.onclick = () => TodoOnClick(textElement);
 	todoList.appendChild(container);
@@ -57,8 +57,8 @@ const TodoOnClick = (entry) => {
 		const dateText = document.createElement("p");
 		const today = new Date();
 
-		dateText.innerHTML = `${PadString(today.getDay())}-${PadString(today.getMonth())}-${today.getFullYear()} - ${today.getHours()}:${PadString(today.getMinutes())}`;
-		entry.parentNode.appendChild(dateText);
+		dateText.textContent = `Finished on: ${PadString(today.getDay())}-${PadString(today.getMonth())}-${today.getFullYear()} - ${today.getHours()}:${PadString(today.getMinutes())}`;
+		entry.parentNode.insertBefore(dateText, entry.nextSibling);
 	}		
 }
 
