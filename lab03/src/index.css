@@ -1,0 +1,102 @@
+:root {
+  --background-color: #261C2C;
+  --foreground-color: #3E2C41;
+  --accent-dark: #5C527F;
+  --accent-light: #6E85B2;
+  --text-color: rgb(211, 211, 211);
+  --border-radius: 10px;
+}
+
+body {
+  background-color: var(--background-color);
+  color: var(--text-color);
+  margin: 0;
+  font-size: 16px;
+  font-family: monospace;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+ul {
+  list-style-type: none;
+}
+
+#navbar {
+  background-color: var(--foreground-color);
+  margin: 0 auto;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+.navbar-link {
+  padding-left: 20px;
+  padding-right: 20px;
+  color: var(--text-color);
+}
+
+.content-container {
+  margin-left: 20%;
+  margin-right: 20%;
+  padding-top: 20px;
+}
+
+.text-input {
+  width: 100%;
+  background-color: var(--foreground-color);
+  border-style: none;
+  font-size: 20px;
+  border-radius: var(--border-radius);
+  padding-top: 5px;
+  padding-bottom: 5px;
+  color: var(--text-color);
+}
+
+.advert {
+  background-color: var(--foreground-color);
+  margin-top: 10px;
+  margin-bottom: 10px;
+  padding: 10px;
+  border-radius: var(--border-radius);
+}
+
+button {
+  transition-duration: 0.2s;
+  font-size: 20px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-left: 15px;
+  padding-right: 15px;
+  background-color: var(--accent-dark);
+  color: var(--text-color);
+  border-radius: var(--border-radius);
+  border-style: none;
+}
+
+button:hover {
+  transition-duration: 0.2s;
+  background-color: var(--accent-light);
+}
+
+.button {
+  transition-duration: 0.2s;
+  font-size: 20px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-left: 15px;
+  padding-right: 15px;
+  background-color: var(--accent-dark);
+  color: var(--text-color);
+  border-radius: var(--border-radius);
+  border-style: none;
+}
+
+.button:hover {
+  transition-duration: 0.2s;
+  background-color: var(--accent-light);
+}
+
