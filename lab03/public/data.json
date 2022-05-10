@@ -1,0 +1,62 @@
+{
+    "members": [
+        {
+		"email": "",
+		"name": "Andrzej",
+		"subject": "PiW",
+		"description": "Project description...",
+		"tags": [
+                "React",
+                "JavaScript",
+                "NodeJs"
+            ],
+        "picture": ""
+        },
+        {
+		"email": "",
+		"name": "Kacper",
+		"subject": "SO2",
+		"description": "Diffrent project description...",
+		"tags": [
+                "Bash",
+                "C++",
+                "CMake"
+            ],
+        "picture": ""
+        },
+        {
+		"email": "",
+		"name": "Kamil",
+		"subject": "UCiSW2",
+		"description": "Even more different project description...",
+		"tags": [
+                "VHDL",
+                "FPGA"
+            ],
+        "picture": ""
+        }
+    ],
+    "groups": [
+        {
+		"email": "",
+		"name": "Group 1",
+		"subject": "PiW",
+		"description": "Some text about how good this group is...",
+		"members": [
+                "Kamil",
+                "Michał",
+                "Maciej"
+            ]
+        },
+        {
+		"email": "",
+		"name": "Group 2",
+		"subject": "SO2",
+		"description": "Different group description...",
+		"members": [
+                "Jan",
+                "Damian"
+            ]
+        }
+    ]
+}
