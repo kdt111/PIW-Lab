@@ -8,9 +8,14 @@ import Members from './components/members/Members';
 import SendMessage from './components/messaging/SendMessage';
 import Data from './Data';
 import Favourites from './components/Favourites';
+import { auth } from './firebase/Init';
+import { useAuthState } from 'react-firebase-hooks/auth';
 
 function App() {
     const [hasData, setHasData] = useState(false);
+
+    const [user] = useAuthState(auth);
+
     useEffect(() => {
         if (!hasData) {
             console.log("Fetching data...");

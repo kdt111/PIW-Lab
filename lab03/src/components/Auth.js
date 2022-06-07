@@ -1,57 +1,53 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useAuthState } from "react-firebase-hooks/auth";
 import { useNavigate } from "react-router-dom";
 import Data from "../Data";
+import { auth } from "../firebase/Init";
+import { logInWithEmailAndPassword, logInWithGithub, logInWithGoogle, registerUser } from "../firebase/Users";
 import Navbar from "./Navbar";
 
 const Auth = () => {
     const navigate = useNavigate();
     const [error, setError] = useState("");
 
-    const saveToLocalStorage = (user) => {
-        
-    }
+    const [user, loading, userError] = useAuthState(auth);
+
+    useEffect(() => {
+        if (loading)
+            return;
+        if (user) {
+            Data.setCurrentUser(user);
+            navigate("/");
+        }
+        if (userError)
+            setError({userError});
+    },[user, loading]);
 
     const login = () => {
-        const login = document.getElementById("login").value;
+        const email = document.getElementById("email").value;
         const password = document.getElementById("password").value;
+        const name = document.getElementById("name").value;
 
-        if (login === "" || password === "") {
-            setError("Password and login can't be empty");
+        if (email === "" || password === "") {
+            setError("Some field is empty");
             return;
         }
 
-        const newUser = Data.allUsers[login]
-        if (newUser) {
-            if (newUser.password !== password){
-                setError("Invalid password");
-                return;
-            }
-            Data.setCurrentUser(newUser);
-            navigate("/", {replace: true});
-        }
-        else {
-            setError(`User: ${login} doesn't exist`);
-        }
+        logInWithEmailAndPassword(email, password);
     };
 
     const register = () => {
-        const login = document.getElementById("login").value;
+        const email = document.getElementById("email").value;
         const password = document.getElementById("password").value;
+        const name = document.getElementById("name").value;
 
-        if (login === "" || password === "") {
-            setError("Password and login can't be empty");
+
+        if (email === "" || password === "" || name === "") {
+            setError("Some field is empty");
             return;
         }
 
-        const newUser = { login: login, password: password, favourites: [] };
-        if (Data.allUsers[login]) {
-            setError(`User: ${login} already exist`);
-        }
-        else {
-            Data.allUsers[login] = newUser;
-            Data.setCurrentUser(newUser);
-            navigate("/", { replace: true });
-        }
+        registerUser(email, password, name);
     };
 
     return (
@@ -59,16 +55,22 @@ const Auth = () => {
             <Navbar />
             <div className="content-container">
                 <label>
-                    Login
-                    <input id="login" className="text-input" type="text" placeholder="Login..." required></input>
+                    Name
+                    <input id="name" className="text-input" type="text" placeholder="Name (only required when registering)..."></input>
+                </label>
+                <label>
+                    Email
+                    <input id="email" className="text-input" type="text" placeholder="Email..."></input>
                 </label>
                 <label>
                     Password
-                    <input id="password" className="text-input" type="password" placeholder="Password..." required></input>
+                    <input id="password" className="text-input" type="password" placeholder="Password..."></input>
                 </label>
                 <button style={{ width: '100%' }} onClick={login}>Login</button>
                 <button style={{ width: '100%' }} onClick={register}>Register</button>
                 {error === "" ? <></> : <p style={{textAlign: "center"}}>{error}</p>}
+                <button style={{ width: '100%' }} onClick={logInWithGoogle}>Login with Google</button>
+                <button style={{ width: '100%' }} onClick={logInWithGithub}>Login with GitHub</button>
             </div>
         </div>
     );
